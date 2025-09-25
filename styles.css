@@ -1,11 +1,74 @@
+.contact-section {
+  background: #f8fdfb;
+  padding: 3rem 1.5rem;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.contact-container h2 {
+  font-size: 2.2rem;
+  color: #0b6b4f;
+  margin-bottom: 1rem;
+}
+
+.contact-intro {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.contact-card {
+  background: #eafaf3;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  color: #0b6b4f;
+  margin-bottom: 0.3rem;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.8rem 0;
+  line-height: 1.5;
+}
+
+.contact-info strong {
+  color: #0b6b4f;
+}
+
+.contact-info a {
+  color: #0b6b4f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #088c5a;
+}
 /* styles.css - simple responsive layout, keep accessible and clean */
 :root{--accent:#0b6b4f;--muted:#666;--bg:#f6f7f9}
 *{box-sizing:border-box}
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.4;margin:0;background:var(--bg);color:#111}
 .site-header{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1rem;background:white;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
-.site-header .logo{font-weight:700;color:var(--accent);}
+.site-header .logo{font-weight:700;color:var(--accent);font-size:3rem;}
 .site-header nav a{margin-left:0.75rem;text-decoration:none;color:var(--muted)}
 .container{padding:1rem;max-width:1000px;margin:1rem auto;background:white;border-radius:8px;box-shadow:0 6px 18px rgba(12,12,12,0.04)}
+.container{padding:1rem;max-width:1000px;margin:1rem auto;background:white;border-radius:8px;box-shadow:0 6px 18px rgba(12,12,12,0.04);padding-bottom:4rem;}
 .products-grid{display:flex;flex-wrap:wrap;gap:16px;justify-content:flex-start}
 .product{flex:1 1 220px;border:1px solid #e6e8eb;padding:12px;border-radius:8px;background:#fff;display:flex;flex-direction:column;align-items:flex-start}
 .product h3{margin:0 0 8px 0;font-size:1.05rem}
@@ -17,8 +80,96 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
 input,textarea,select{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}
 button.primary{background:var(--accent);color:white;padding:10px 14px;border:0;border-radius:6px;cursor:pointer}
 .notice{padding:10px;border-radius:6px;background:#f0fff6;border:1px solid #d4f1de;color:#0b6b4f;margin-bottom:12px}
+/* Center footer at bottom */
+.site-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: white;
+  padding: 1rem 0;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.06);
+}
 @media (max-width:600px){
   .site-header nav{display:none}
   .product{flex:1 1 100%}
   .container{margin:0.5rem}
+}
+
+/* About Section Styling */
+.about-section {
+  background: #f8fdfb;
+  padding: 3rem 1.5rem;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.about-container {
+  text-align: left;
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #0b6b4f;
+  margin-bottom: 1.5rem;
+}
+
+.about-section p {
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.about-section .intro-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0b6b4f;
+  text-align: center;
+}
+
+.team-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #eafaf3;
+  border-radius: 10px;
+}
+
+.team-section h3 {
+  font-size: 1.5rem;
+  color: #0b6b4f;
+  margin-bottom: 0.8rem;
+}
+
+.team-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-section ul li {
+  padding: 0.4rem 0;
+  font-size: 1rem;
+  color: #444;
+  position: relative;
+  padding-left: 20px;
+}
+
+.team-section ul li::before {
+  content: "✔";
+  color: #0b6b4f;
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+}
+
+.closing-text {
+  margin-top: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  color: #555;
 }

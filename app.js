@@ -2,9 +2,13 @@
 // Keep code style similar to student's original but structured.
 
 const PRODUCTS = [
-  { id: 'p20', name: '20 Litre Water Bottle', price: 350, stock: 20 },
-  { id: 'p5',  name: '5 Litre Water Bottle',  price: 120, stock: 50 },
-  { id: 'p1',  name: '1 Litre Pack (12)',      price: 240, stock: 80 }
+  { id: 'p20', name: '20 Litre Water Bottle', price: 100, stock: 20 },
+  { id: 'p10',  name: '10 Litre Water Bottle',  price: 90, stock: 50 },
+  { id: 'p5'  ,  name:    '5 Litre Water Bottle', price: 75, stock: 80 },
+  { id: 'p2'   ,  name:     '2 Litre Pack (12)',   price: 480, stock: 80 },
+  { id: 'p1'    ,  name:       '1 Litre Pack (12)', price: 240, stock: 80 },
+  { id: 'p500'   ,  name:        '500 Milliliter Pack (12)', price: 200, stock: 80 },
+  { id: 'p250'    ,  name:        '250 Milliliter Pack (12)', price: 180, stock: 80 }
 ];
 
 function $(id){return document.getElementById(id)}
@@ -17,9 +21,75 @@ function showSection(section){
   } else if(section === 'cart'){
     renderCart();
   } else if(section === 'about'){
-    content.innerHTML = `<h2>About Us</h2><p>SHREE SAMARTH INDUSTRIES has been producing potable packaged water for over 8 years. We focus on hygiene and timely delivery.</p>`;
+    content.innerHTML = `<section id="about" class="about-section">
+  <div class="about-container">
+    <h2>About Us</h2>
+    <p class="intro-text">
+      <strong>SHREE SAMARTH INDUSTRIES</strong> is proud to be associated with your esteemed organization, 
+      and we deeply appreciate your continued trust and partnership over the years.
+    </p>
+
+    <p>
+      With over 8 years of experience, we have built a strong reputation for delivering high-quality packaged drinking water products. 
+      What started as a small operation in 2016 has now grown into a renowned business, 
+      serving a wide network of customers across various areas in Pune. 
+      Today, we proudly cater to a base of over 16 loyal customers and businesses.
+    </p>
+
+    <p>
+      At the core of our operations is a strong commitment to customer satisfaction. 
+      We believe that ethical practices, competitive pricing, and on-time delivery 
+      are the true measures of success. These values have made us a trusted and preferred partner in the market.
+    </p>
+
+    <div class="team-section">
+      <h3>Our Team</h3>
+      <p>
+        Our team consists of well-qualified and experienced professionals dedicated to maintaining the highest standards. 
+        To ensure we stay ahead of industry trends, we conduct regular training sessions 
+        to sharpen skills and stay updated with market demands. Our team includes:
+      </p>
+      <ul>
+        <li>Quality Controllers</li>
+        <li>Technicians</li>
+        <li>Machine Operators</li>
+        <li>Sales & Marketing Personnel</li>
+      </ul>
+    </div>
+
+    <p class="closing-text">
+      We look forward to building a long-term relationship with your organization. 
+      We would be delighted to meet in person to discuss how our products and services can meet your needs. 
+      For inquiries or business collaborations, please don’t hesitate to reach out to us.
+    </p>
+  </div>
+</section>`;
   } else if(section === 'contact'){
-    content.innerHTML = `<h2>Contact</h2><p>Email: oxigrow@example.com<br/>Phone: +91 90000 00000</p>`;
+    content.innerHTML = `<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <p class="contact-intro">
+      Have questions or need to place an order? We're here to help!
+    </p>
+
+    <div class="contact-card">
+      <h3>SHREE SAMARTH INDUSTRIES</h3>
+      <p class="contact-subtitle">Mineral Drinking Water & Cold Water Jar Suppliers</p>
+
+      <div class="contact-info">
+        <p><strong>Address:</strong> Near Sajai Mandir, Kamthe Mala, Fursungi, Pune - 412308</p>
+        <p><strong>Phone:</strong> 
+          <a href="tel:+919623646767">9623 64 6767</a> / 
+          <a href="tel:+919552566767">9552 56 6767</a> / 
+          <a href="tel:+919689284999">9689 28 4999</a>
+        </p>
+        <p><strong>Email:</strong> 
+          <a href="mailto:oxigrow@example.com">oxigrow@example.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>`;
   }
 }
 

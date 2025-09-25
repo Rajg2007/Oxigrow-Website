@@ -4,6 +4,9 @@ let orders = JSON.parse(localStorage.getItem('orders')) || [];
 // Elements
 const cartList = document.getElementById('cartList');
 const addBtn = document.getElementById('addOrder');
+const productInput = document.getElementById('product');
+const quantityInput = document.getElementById('quantity');
+const customerInput = document.getElementById('customer');
 
 // Display orders
 function displayCart() {
@@ -13,24 +16,32 @@ function displayCart() {
     li.textContent = `${order.product} x ${order.quantity} by ${order.customer}`;
     cartList.appendChild(li);
   });
+  
+  // Scroll to the last order
+  if (orders.length > 0) {
+    cartList.lastChild.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 // Add new order
 addBtn.addEventListener('click', () => {
-  const product = document.getElementById('product').value.trim();
-  const quantity = parseInt(document.getElementById('quantity').value);
-  const customer = document.getElementById('customer').value.trim();
+  const product = productInput.value.trim();
+  const quantity = parseInt(quantityInput.value);
+  const customer = customerInput.value.trim();
 
-  if (!product || !customer || quantity <= 0) return alert("Please fill all fields correctly");
+  if (!product || !customer || quantity <= 0) {
+    return alert("Please fill all fields correctly");
+  }
 
   orders.push({ product, quantity, customer });
   localStorage.setItem('orders', JSON.stringify(orders));
   displayCart();
 
-  // Clear inputs
-  document.getElementById('product').value = '';
-  document.getElementById('quantity').value = 1;
-  document.getElementById('customer').value = '';
+  // Clear inputs and focus on product
+  productInput.value = '';
+  quantityInput.value = 1;
+  customerInput.value = '';
+  productInput.focus();
 });
 
 // Initial display
