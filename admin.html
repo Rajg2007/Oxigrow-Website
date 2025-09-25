@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oxigrow — Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">Oxigrow — Admin</div>
+    <nav>
+      <a href="index.html">Customer view</a>
+    </nav>
+  </header>
+  <main class="container">
+    <h2>Orders</h2>
+    <div id="orders"></div>
+  </main>
+  <script>
+    // Admin simple viewer using localStorage (demo)
+    function renderOrders(){
+      const out = document.getElementById('orders');
+      const orders = JSON.parse(localStorage.getItem('orders')) || [];
+      if(orders.length===0){ out.innerHTML = '<p>No orders yet.</p>'; return; }
+      out.innerHTML = '';
+      orders.reverse().forEach((ord, idx)=>{
+        const div = document.createElement('div');
+        div.style.border='1px solid #eee'; div.style.padding='8px'; div.style.marginBottom='8px';
+        div.innerHTML = '<strong>'+ord.id+'</strong> — '+ord.status+'<br/>'+
+                        'Name: '+ord.name+'<br/>'+
+                        'Phone: '+ord.phone+'<br/>'+
+                        'Total: ₹'+ord.total.toFixed(2)+'<br/>';
+        const sel = document.createElement('select');
+        ['Pending','Dispatched','Completed'].forEach(s=>{
+          const opt = document.createElement('option'); opt.value=s; opt.textContent=s;
+          if(s===ord.status) opt.selected = true;
+          sel.appendChild(opt);
+        });
+        sel.onchange = function(e){ ord.status = e.target.value; saveAll(); renderOrders(); };
+        div.appendChild(sel);
+        out.appendChild(div);
+      });
+      function saveAll(){ localStorage.setItem('orders', JSON.stringify(orders)); }
+    }
+    renderOrders();
+  </script>
+</body>
+</html>
