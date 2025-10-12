@@ -21,7 +21,7 @@ function showSection(section){
   } else if(section === 'cart'){
     renderCart();
   } else if(section === 'about'){
-    content.innerHTML = `<section id="about" class="about-section">
+      content.innerHTML = `<section id="about" class="about-section">
   <div class="about-container">
     <h2>About Us</h2>
     <p class="intro-text">
@@ -157,7 +157,7 @@ function renderCart(){
     <form id="checkoutForm" onsubmit="placeOrder(event)">
       <div class="form-row"><input name="name" placeholder="Full name" required></div>
       <div class="form-row"><input name="phone" placeholder="Phone (10 digits)" required></div>
-      <div class="form-row"><input name="email" placeholder="Email"></div>
+      <div class="form-row"><input type="email" id="customer" name="email" required placeholder="Enter your email"></div>
       <div class="form-row"><textarea name="address" placeholder="Delivery address" required></textarea></div>
       <div class="form-row"><button class="primary" type="submit">Place order</button></div>
     </form>`;
@@ -185,7 +185,7 @@ function removeFromCart(index){
 }
 
 // validate simple inputs
-function isValidPhone(v){ return /^\d{10}$/.test(v); }
+function isValidPhone(v){ return /^[1-9][0-9]{9}$/.test(v); }
 function placeOrder(event){
   event.preventDefault();
   const form = event.target;
